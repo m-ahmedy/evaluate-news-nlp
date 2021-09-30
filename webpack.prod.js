@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const common = require('./webpack.common')
 const merge = require('webpack-merge')
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
@@ -25,5 +26,6 @@ module.exports = merge(common, {
     },
     plugins: [
         new MiniCssExtractPlugin({ filename: '[name].css' }),
+        new WorkboxPlugin.GenerateSW()
     ]
 })

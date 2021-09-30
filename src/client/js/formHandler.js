@@ -7,7 +7,7 @@ function handleSubmit(event) {
     let formText = document.getElementById('name').value
 
     if (checkValidUrl(formText)) {
-        fetch('http://localhost:8081/test', {
+        fetch('/test', {
             method: 'POST',
             body: JSON.stringify({ formText }),
             headers: {

@@ -6,6 +6,16 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
+
+if (process.env.NODE_ENV === 'production') {
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js')
+        })
+    }
+}
+
+
 export {
     handleSubmit
 }

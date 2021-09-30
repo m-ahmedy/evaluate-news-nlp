@@ -7,21 +7,22 @@ const fetch = require('node-fetch')
 
 dotenv.config()
 const app = express()
+const port = process.env.PORT || 8081
 
 /* Express middleware */
 app.use(cors())
 app.use(express.json({ extended: false }))
-app.use(express.static(path.resolve(__dirname, 'dist')))
+app.use(express.static(path.resolve(__dirname, '../../dist')))
 
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    res.sendFile(path.resolve(__dirname, 'dist/index.html'))
+    res.sendFile(path.resolve(__dirname, '../../dist/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
-    console.log('Example app listening on port 8081!')
+app.listen(port, function () {
+    console.log(`Example app listening on port ${port}!`)
 })
 
 app.post('/test', function (req, res) {
